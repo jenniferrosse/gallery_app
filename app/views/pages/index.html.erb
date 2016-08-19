@@ -1,3 +1,25 @@
-<h1>Orange Dot Galleries<h1>
+<div class="container">
+  <h1>Orange Dot Galleries<h1>
 
-  <%= link_to "Sign out", destroy_gallery_session_path, :method => :delete %>
+  <button class="btn btn-default" type="submit">
+    <%= link_to "View All Galleries", galleries_path %>
+  </button>
+  <br>
+  <br>
+
+  <button class="btn btn-default" type="submit">
+    <%= link_to "Edit Your Gallery", edit_gallery_registration_path %>
+  </button>
+
+  <br>
+  <br>
+  
+  <button class="btn btn-default" type="submit">
+    <%= link_to "Add Your Gallery", new_gallery_registration_path %>
+  </button>
+
+  <br>
+  <br>
+
+    <%= link_to "Sign out", destroy_gallery_session_path, :method => :delete %>
+</div>
