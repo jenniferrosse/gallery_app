@@ -1,18 +1,34 @@
 <div class="container">
+  <div class="row">
+    <div class="col-md-5 col-md-offset-2">
+      <button class="btn btn-default" type="submit"><%= link_to 'View All Galleries', galleries_path %></button>
+    </div>
+  </div>
 
-  <button class="btn btn-default" type="submit"><%= link_to 'View All Galleries', galleries_path %></button>
+  <br>
+  <br>
   
+  <div class="row">
+    <div class="col-md-5 col-md-offset-2">
+      <h1><%= @gallery.name %></h1>
+      <%= @gallery.address %><br>
+      <%= @gallery.phone %><br>
+      <%= @gallery.hours %><br>
+      <br>
+      <em><%= @gallery.medium %></em><br>
+      <br>
+      <%= link_to @gallery.website, url_with_protocol(@gallery.website), :target => '_blank' %>
+    </div>
+    <div class="col-md-5">
+      <%= image_tag @gallery.thumbnail.url(:small) %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+    <hr>
 
-  <h1><%= @gallery.name %></h1>
-  <%= @gallery.address %><br>
-  <%= @gallery.phone %><br>
-  <%= @gallery.hours %><br>
-  <br>
-  <em><%= @gallery.medium %></em><br>
-  <br>
-  <%= @gallery.website %><br>
-  <hr>
-  <%= markdown(@gallery.description) %><br>
-  
+    <%= markdown(@gallery.description) %><br>
+    </div>
+  </div>
 
 </div>

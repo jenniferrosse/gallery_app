@@ -1,13 +1,16 @@
 <div class="container">
-  <h1>Galleries</h1>
+  <h1 class="text-center">Map of Galleries</h1>
 
-
-  <div style='width: 800px;'>
-    <div id="map" style='width: 800px; height: 400px;'></div>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <div class="map_container">
+      <div id="map_canvas" class="map_canvas"></div>
+    </div>
   </div>
+</div>
   <script type="text/javascript">
     handler = Gmaps.build('Google');
-      handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+      handler.buildMap({ provider: {}, internal: {id: 'map_canvas'}}, function(){
         markers = handler.addMarkers(<%=raw @hash.to_json %>);
         handler.bounds.extendWith(markers);
         handler.fitMapToBounds();
@@ -41,13 +44,20 @@
         addCurrentLocation();
   </script>
 <br>
-  <% @galleries.each do |gallery| %>
-    <p>
-      <strong><%= link_to gallery.name, gallery %></strong><br>
-      <%= gallery.address %><br>
-      <em><%= gallery.medium %></em>
-    </p>
-  <% end %>
-
-
-</div>
+<div class="row">
+    <% @galleries.each do |gallery| %>
+      <div class="row">
+        <div class="col-md-1 col-md-offset-4">
+            <%= image_tag gallery.thumbnail.url(:tiny) %>
+        </div><!-- end md 1 -->
+        <div class="col-md-5">
+          <strong><%= link_to gallery.name, gallery %></strong><br>
+            <%= gallery.address %><br>
+            <em><%= gallery.medium %></em><br>
+            <%= link_to gallery.website, url_with_protocol(gallery.website), :target => '_blank' %><br>
+            <br>
+        </div><!-- end md 5 -->
+      </div><!-- end row -->
+    <% end %>
+</div><!-- end row -->  
+</div><!-- end container -->
