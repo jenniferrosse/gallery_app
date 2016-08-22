@@ -1,13 +1,18 @@
 <div class="container">
 
-  <%= link_to 'Galleries List', galleries_path %>
+  <button class="btn btn-default" type="submit"><%= link_to 'View All Galleries', galleries_path %></button>
+  
 
   <h1><%= @gallery.name %></h1>
-  <%= @gallery.description %><br>
-  <%= @gallery.medium %><br>
-  <%= @gallery.website %><br>
   <%= @gallery.address %><br>
   <%= @gallery.phone %><br>
   <%= @gallery.hours %><br>
+  <br>
+  <em><%= @gallery.medium %></em><br>
+  <br>
+  <%= @gallery.website %><br>
+  <hr>
+  <%= markdown(@gallery.description) %><br>
+  
 
 </div>

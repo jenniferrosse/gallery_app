@@ -6,4 +6,7 @@ class PagesController < ApplicationController
   def instructions
   end
 
+  def add_your_gallery
+  end
+
 end

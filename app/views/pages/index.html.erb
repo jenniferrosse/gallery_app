@@ -1,25 +1,17 @@
 <div class="container">
-  <h1>Orange Dot Galleries<h1>
+  <div class="jumbotron">
+  <h1>Orange Dot Gallery Walk</h1>
+  <p>The second Friday of each month. Use the map to find participating galleries. Look for the orange dots on their doors or windows.</p>
+  <p>Next Walk: <strong>Friday, September 9th, 2016 from 6-10pm</strong></p>
+  <p><%= link_to "View All Galleries", galleries_path, class: "btn btn-primary btn-lg" %>
+<br>
+<br>
+<p>Interested in participating as an artist?
 
-  <button class="btn btn-default" type="submit">
-    <%= link_to "View All Galleries", galleries_path %>
-  </button>
-  <br>
-  <br>
-
-  <button class="btn btn-default" type="submit">
-    <%= link_to "Edit Your Gallery", edit_gallery_registration_path %>
-  </button>
-
-  <br>
-  <br>
   
   <button class="btn btn-default" type="submit">
-    <%= link_to "Add Your Gallery", new_gallery_registration_path %>
+    <%= link_to "Add Your Gallery", pages_add_your_gallery_path %>
   </button>
-
-  <br>
-  <br>
-
-    <%= link_to "Sign out", destroy_gallery_session_path, :method => :delete %>
+</p>
+</div>
 </div>

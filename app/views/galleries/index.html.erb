@@ -12,12 +12,41 @@
         handler.bounds.extendWith(markers);
         handler.fitMapToBounds();
       });
-  </script>
 
+      // adds the users current location based on browser GPS
+        function addCurrentLocation() {
+
+          function displayOnMap(position){
+            var marker = handler.addMarker({
+              lat: position.coords.latitude,
+              lng: position.coords.longitude,
+              picture: {
+                url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
+                width:  36,
+                height: 36
+              },
+              infowindow: "This is you!"
+            });
+            handler.bounds.extendWith(markers);
+            handler.fitMapToBounds();
+            // handler.map.centerOn(marker);
+          };
+
+          if(navigator && navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(displayOnMap);  
+          }
+
+        }
+
+        addCurrentLocation();
+  </script>
+<br>
   <% @galleries.each do |gallery| %>
-    <%= link_to gallery do %>
-      <h2><%= gallery.name %></h2>
-    <% end %>  
+    <p>
+      <strong><%= link_to gallery.name, gallery %></strong><br>
+      <%= gallery.address %><br>
+      <em><%= gallery.medium %></em>
+    </p>
   <% end %>
 
 

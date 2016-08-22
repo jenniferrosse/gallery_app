@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root 'pages#index'
 
   get 'pages/instructions'
+  get 'pages/add_your_gallery'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
